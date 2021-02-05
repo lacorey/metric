@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: test-metric
+server:
+  port: 8050
+#Prometheus springboot监控配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["*"]  # 开启的端点
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    jmx:
+      exposure:
+        include: prometheus,metrics  # 开启的端点
